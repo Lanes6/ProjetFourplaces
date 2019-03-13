@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:fourplaces"
+                      xmlns:models="clr-namespace:fourplaces.Models"
+                      xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                      xmlns:vm="clr-namespace:fourplaces.ViewModels"
+                      x:Class="fourplaces.UserEditPage"
+                      BackgroundColor="{StaticResource PageBackgroundColor}"
+                      x:DataType="vm:UserEditViewModel"
+                      >
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+
+            <Label Text="Modifier son profil"
+            HorizontalOptions="CenterAndExpand" 
+            Margin="0,30"
+            FontSize="24"/>
+
+            <Label Text="{Binding Msg}"
+                FontSize="20"
+                TextColor="Red"
+                Margin="10,0"/>
+
+            <Label Text="Votre Prénom"
+                FontSize="20"
+                Margin="10,0"/>
+            <Entry Text="{Binding FirstName}"
+                Placeholder="Prénom"
+                Margin="10,0"/>
+
+            <Label Text="Votre Nom"
+                FontSize="20"
+                Margin="10,0"/>
+            <Entry Text="{Binding LastName}"
+                Placeholder="Nom"
+                Margin="10,0"/>
+
+            <Image Source="{Binding ImageUrl}"
+                Margin="10,0"/>
+
+            <Label Text="Id de votre image"
+                FontSize="20"
+                Margin="10,0"/>
+            <Entry Text="{Binding ImageId}"
+                Placeholder="1"
+                Margin="10,0"/>
+
+            <Button Text="Enregistrer une nouvelle photo"
+                Command="{Binding NewPictureCommand}"
+                Margin="10,0"/>
+
+            <Button Text="Modifier son profil"
+                Command="{Binding EditCommand}"
+                Margin="10,0"/>
+
+        </StackLayout>
+    </ScrollView>
+</mvvm:BaseContentPage>

@@ -1,0 +1,241 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": "1d1bb16c591d54a87db7e33e6497c99a142f24da"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "fourplaces/1.0.0": {
+        "dependencies": {
+          "MonkeyCache.SQLite": "1.2.0-beta",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.1",
+          "Storm.Mvvm.Forms": "2.1.0",
+          "Xam.Plugin.Geolocator": "4.5.0.6",
+          "Xam.Plugin.Media": "4.0.1.5",
+          "Xamarin.Forms": "3.4.0.1008975",
+          "Xamarin.Forms.Maps": "3.4.0.1008975",
+          "Mono.Android": "0.0.0.0"
+        },
+        "runtime": {
+          "fourplaces.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "MonkeyCache/1.2.0-beta": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.dll": {}
+        }
+      },
+      "MonkeyCache.SQLite/1.2.0-beta": {
+        "dependencies": {
+          "MonkeyCache": "1.2.0-beta",
+          "Newtonsoft.Json": "12.0.1",
+          "sqlite-net-pcl": "1.5.231"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.SQLite.dll": {}
+        }
+      },
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
+        }
+      },
+      "sqlite-net-pcl/1.5.231": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.bundle_green": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.core": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_green.dll": {},
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "Storm.Mvvm.Forms/2.1.0": {
+        "dependencies": {
+          "Xamarin.Forms": "3.4.0.1008975"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
+        }
+      },
+      "Xam.Plugin.Geolocator/4.5.0.6": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Geolocator.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {}
+        }
+      },
+      "Xamarin.Forms/3.4.0.1008975": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {},
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "Xamarin.Forms.Maps/3.4.0.1008975": {
+        "dependencies": {
+          "Xamarin.Forms": "3.4.0.1008975"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Maps.Design.dll": {},
+          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {}
+        }
+      },
+      "Mono.Android/0.0.0.0": {
+        "runtime": {
+          "Mono.Android.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "fourplaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "MonkeyCache/1.2.0-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mQn2yreoeB7084wUZchbQw2uJGozkH0L+//bdozahDdCPwCcvHHCTyVTqQfdTmLGn2lw2FKM1ysUrHvqZsFYbA==",
+      "path": "monkeycache/1.2.0-beta",
+      "hashPath": "monkeycache.1.2.0-beta.nupkg.sha512"
+    },
+    "MonkeyCache.SQLite/1.2.0-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/IfoZZG4+HWXKuTJpDplL7d72lqnUrZqlX8Fdriq5nKMztDcZ0lCPKeXoKNZ2VBtr1vFqhfpu9h75Hq8v8T2+Q==",
+      "path": "monkeycache.sqlite/1.2.0-beta",
+      "hashPath": "monkeycache.sqlite.1.2.0-beta.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+      "path": "newtonsoft.json/12.0.1",
+      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
+    },
+    "Plugin.Permissions/3.0.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "path": "plugin.permissions/3.0.0.12",
+      "hashPath": "plugin.permissions.3.0.0.12.nupkg.sha512"
+    },
+    "sqlite-net-pcl/1.5.231": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B9jScvqkishSMkpa9Mc4Q85LTHxRTzcUXZx9EQqgrvdz7MFEDHfpiPcKdjy1qXHdmHttEXfY4h6gu4FlgWP2Sw==",
+      "path": "sqlite-net-pcl/1.5.231",
+      "hashPath": "sqlite-net-pcl.1.5.231.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_green/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hqp8IF/RLjbypkLm+t+1RqAX8EKuWEkj7wkLXplfENQoPnE127cvTmaDvaQKtt7a5QsD/HNjFDr1z5f9q2wdPg==",
+      "path": "sqlitepclraw.bundle_green/1.1.11",
+      "hashPath": "sqlitepclraw.bundle_green.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QT17CyQAQIbTCu6pW5+uVA8BXqRzquiDI1tr5Un6c1YZcQydPmGPuYYng9xMs2UHUDYHbTu+JDkp55WR+qo9bQ==",
+      "path": "sqlitepclraw.core/1.1.11",
+      "hashPath": "sqlitepclraw.core.1.1.11.nupkg.sha512"
+    },
+    "Storm.Mvvm.Forms/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-arwtqPq7+uvW4lCpA3zbWaviIBs/G/x/PsT1IVc6AlkMligUmrX9lxrDR504WVuZ1GXPxnuV7g55/qpGO85WzA==",
+      "path": "storm.mvvm.forms/2.1.0",
+      "hashPath": "storm.mvvm.forms.2.1.0.nupkg.sha512"
+    },
+    "Xam.Plugin.Geolocator/4.5.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ro7peBDxsDXPc7J7yLx0ekAcXIfVTAXj/rXiBKiTgZ4Lm7KZJIU8PXOCcI4JztzT3MQrL8Rmka48il/ix0pwoA==",
+      "path": "xam.plugin.geolocator/4.5.0.6",
+      "hashPath": "xam.plugin.geolocator.4.5.0.6.nupkg.sha512"
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "path": "xam.plugin.media/4.0.1.5",
+      "hashPath": "xam.plugin.media.4.0.1.5.nupkg.sha512"
+    },
+    "Xamarin.Forms/3.4.0.1008975": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tM9syeev45u92OFENGjq+Zw8WiEwLJFiXe317XpL9SY2RRk9sm2fc1lDVjzwz0da+5ZP5fi24NAPsPQdxBdMwQ==",
+      "path": "xamarin.forms/3.4.0.1008975",
+      "hashPath": "xamarin.forms.3.4.0.1008975.nupkg.sha512"
+    },
+    "Xamarin.Forms.Maps/3.4.0.1008975": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lPQtc+oguWr3Wm4TIrpIHRneIzss/fe0qoRT69yHljjIiJ+CuLz8gACTe1xm+WG8prq29gTcHM/jv37ZAjfMdg==",
+      "path": "xamarin.forms.maps/3.4.0.1008975",
+      "hashPath": "xamarin.forms.maps.3.4.0.1008975.nupkg.sha512"
+    },
+    "Mono.Android/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

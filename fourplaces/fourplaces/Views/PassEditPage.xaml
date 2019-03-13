@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:fourplaces"
+                      xmlns:models="clr-namespace:fourplaces.Models"
+                      xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                      xmlns:vm="clr-namespace:fourplaces.ViewModels"
+                      x:Class="fourplaces.PassEditPage"
+                      BackgroundColor="{StaticResource PageBackgroundColor}"
+                      x:DataType="vm:PassEditViewModel"
+                      >
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+
+            <Label Text="Modifier son mot de passe"
+            HorizontalOptions="CenterAndExpand" 
+            Margin="0,30"
+            FontSize="24"/>
+
+            <Label Text="{Binding Msg}"
+               FontSize="20"
+               TextColor="Red"
+               Margin="10,0"/>
+
+            <Label Text="Mot de passe actuel"
+                   FontSize="20"
+                   Margin="10,0"/>
+            <Entry Text="{Binding OldMdp}"
+                   Placeholder="Ancien mot de passe"
+                   IsPassword="True"
+                   Margin="10,0"/>
+
+            <Label Text="Nouveau mot de passe"
+                   FontSize="20"
+                   Margin="10,0"/>
+            <Entry Text="{Binding Mdp}"
+                   Placeholder="Mot de passe"
+                   IsPassword="True"
+                   Margin="10,0"/>
+
+            <Label Text="Confirmation"
+                   FontSize="20"
+                   Margin="10,0"/>
+            <Entry Text="{Binding Mdp2}"
+                   Placeholder="Mot de passe"
+                   IsPassword="True"
+                   Margin="10,0"/>
+
+            <Button Text="Modifier son mot de passe"
+                Command="{Binding EditCommand}"
+                Margin="10,0"/>
+        </StackLayout>
+    </ScrollView>
+</mvvm:BaseContentPage>

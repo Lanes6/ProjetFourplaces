@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:fourplaces"
+                      xmlns:models="clr-namespace:fourplaces.Models"
+                      xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                      xmlns:vm="clr-namespace:fourplaces.ViewModels"
+                      x:Class="fourplaces.AddPlacePage"
+                      BackgroundColor="{StaticResource PageBackgroundColor}"
+                      x:DataType="vm:AddPlaceViewModel"
+                      >
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Nouveau lieu"
+            HorizontalOptions="CenterAndExpand" 
+            Margin="0,30"
+            FontSize="24"/>
+
+            <Label Text="{Binding Msg}"
+               FontSize="20"
+               TextColor="Red"
+               Margin="10,0"/>
+
+            <Label Text="Titre"
+               FontSize="20"
+               Margin="10,0"/>
+            <Entry Text="{Binding Title}"
+               Placeholder="Titre"
+               Margin="10,0"/>
+
+            <Label Text="Description"
+               FontSize="20"
+               Margin="10,0"/>
+            <Editor Text="{Binding Description}"
+                Placeholder="Description"
+                Margin="10,0"
+                HeightRequest="200"/>
+
+            <Image Source="{Binding ImageUrl}"
+                Margin="10,0"/>
+
+            <Label Text="Id de l'image"
+               FontSize="20"
+               Margin="10,0"/>
+            <Entry Text="{Binding ImageId}"
+                Placeholder="1"
+                Margin="10,0"/>
+
+            <Button Text="Enregistrer une nouvelle photo"
+                Command="{Binding NewPictureCommand}"
+                Margin="10,0"/>
+
+            <Label Text="Localisation"
+                FontSize="20"
+                Margin="10,0"/>
+            <ContentView Content="{Binding Map}"
+                HeightRequest="400"
+                Margin="10,0"/>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Text="Latitude"
+                        FontSize="20"
+                        Margin="10,0"/>
+                    <Entry Text="{Binding Latitude}"
+                        Margin="10,0"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Text="Longitude"
+                       FontSize="20"
+                       Margin="10,0"/>
+                    <Entry Text="{Binding Longitude}"
+                        Margin="10,0"/>
+                </StackLayout>
+            </StackLayout>
+
+            <Button Text="Ajouter le lieu"
+                Command="{Binding AddPlaceCommand}"
+                Margin="10,0"/>
+        </StackLayout>
+    </ScrollView>
+</mvvm:BaseContentPage>

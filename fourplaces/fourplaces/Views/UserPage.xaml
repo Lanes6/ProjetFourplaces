@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:local="clr-namespace:fourplaces"
+                      xmlns:models="clr-namespace:fourplaces.Models"
+                      xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                      xmlns:vm="clr-namespace:fourplaces.ViewModels"
+                      x:Class="fourplaces.UserPage"
+                      BackgroundColor="{StaticResource PageBackgroundColor}"
+                      x:DataType="vm:UserViewModel"
+                      >
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+
+            <Label Text="Profil"
+            HorizontalOptions="CenterAndExpand" 
+            Margin="0,30"
+            FontSize="24"/>
+
+            <Label Text="{Binding Msg}"
+               FontSize="20"
+               TextColor="Red"
+               Margin="10,0"/>
+
+            <Image Source="{Binding ImageUrl}"
+                Margin="10,0"/>
+
+            <Label Text="{Binding Mail}"
+               FontSize="20"
+               Margin="10,0"/>
+
+            <Label Text="{Binding FirstName}"
+               FontSize="20"
+               Margin="10,0"/>
+
+            <Label Text="{Binding LastName}"
+               FontSize="20"
+               Margin="10,0"/>
+
+            <Button Text="Modifier son profil"
+                Command="{Binding GoProfilEditCommand}"
+                Margin="10,0"/>
+
+            <Button Text="Changer son mot de passe"
+                Command="{Binding GoPassEditCommand}"
+                Margin="10,0"/>
+        </StackLayout>
+    </ScrollView>
+</mvvm:BaseContentPage>

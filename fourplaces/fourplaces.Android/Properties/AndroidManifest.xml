@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.fourplaces" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.LOCATION_HARDWARE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<application android:label="fourplaces.Android">
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCCG1Gh1utRLsGXdtPnvN7CJMzAWO4BxfA" />
+	</application>
+</manifest>
