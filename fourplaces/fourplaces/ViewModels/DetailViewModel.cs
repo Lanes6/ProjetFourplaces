@@ -104,11 +104,17 @@ namespace fourplaces.ViewModels
             _map = new Map();
             _commentaires = new List<CommentItem>();
             SendCommentCommand = new Command(async () => { await TrySendComment(); });
+            Setup();
         }
 
         public override async Task OnResume()
         {
             await base.OnResume();
+            await Setup();
+        }
+
+        public async Task Setup()
+        {
             PlaceItem place = await App.SERVICE.GetPlace(Id);
             if (place != null)
             {
@@ -128,7 +134,7 @@ namespace fourplaces.ViewModels
             }
         }
 
-        public async Task TrySendComment()
+            public async Task TrySendComment()
         {
             if (NewComment != "" && NewComment!= null)
             {

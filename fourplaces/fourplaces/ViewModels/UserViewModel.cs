@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
+using MonkeyCache.SQLite;
 using Newtonsoft.Json;
 using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
@@ -62,10 +63,10 @@ namespace fourplaces.ViewModels
         {
             await base.OnResume();
             Msg = "";
-            FirstName = "Prénom: " + App.SESSION_PROFIL.FirstName;
-            LastName = "Nom: " + App.SESSION_PROFIL.LastName;
-            Mail = "EMail: " + App.SESSION_PROFIL.Email;
-            ImageUrl = App.URI_BASE + App.URI_GET_IMAGE + App.SESSION_PROFIL.ImageId;
+            FirstName = "Prénom: " + Barrel.Current.Get<UserItem>(key: "Client").FirstName;
+            LastName = "Nom: " + Barrel.Current.Get<UserItem>(key: "Client").LastName;
+            Mail = "EMail: " + Barrel.Current.Get<UserItem>(key: "Client").Email;
+            ImageUrl = App.URI_BASE + App.URI_GET_IMAGE + Barrel.Current.Get<UserItem>(key: "Client").ImageId;
         }
     }
 }

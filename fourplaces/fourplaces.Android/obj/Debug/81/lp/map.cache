@@ -3,6 +3,8 @@ fourplaces
 MonkeyCache
 MonkeyCache.SQLite
 Newtonsoft.Json
+Plugin.Connectivity.Abstractions
+Plugin.Connectivity
 Plugin.CurrentActivity
 Plugin.Geolocator
 Plugin.Media

@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
+using MonkeyCache.SQLite;
 using Newtonsoft.Json;
+using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -13,6 +15,8 @@ namespace fourplaces.ViewModels
 {
     public class AddPlaceViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        private List<ImageItem2> _images;
+        private ImageItem2 _selectedImage;
         private string _msg = "";
         private string _title = "";
         private string _description = "";
@@ -21,11 +25,34 @@ namespace fourplaces.ViewModels
         private double _latitude;
         private double _longitude;
         private Map _map;
-        public ICommand NewPictureCommand { protected set; get; }
+        public ICommand LoadPictureCommand { protected set; get; }
+        public ICommand TakePictureCommand { protected set; get; }
         public ICommand AddPlaceCommand { protected set; get; }
         public INavigation Navigation { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ImageItem2 SelectedImage
+        {
+            get
+            {
+                return _selectedImage;
+            }
+
+            set
+            {
+                _selectedImage = value;
+                OnPropertyChanged("SelectedImage");
+                ImageId = value.Id.ToString();
+                OnPropertyChanged("ImageId");
+            }
+        }
+
+        public List<ImageItem2> Images
+        {
+            get => _images;
+            set => SetProperty(ref _images, value);
+        }
 
         public string Msg
         {
@@ -107,18 +134,21 @@ namespace fourplaces.ViewModels
         public AddPlaceViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            NewPictureCommand = new Command(async () => { await TryNewPicture(); });
+            LoadPictureCommand = new Command(async () => { await TryLoadPicture(); });
+            TakePictureCommand = new Command(async () => { await TryTakePicture(); });
             AddPlaceCommand = new Command(async () => { await TryAddPlace(); });
             _map = new Map();
+            _images = new List<ImageItem2>();
             _imageId = 1;
             _imageUrl = App.URI_BASE + App.URI_GET_IMAGE +1;
-            _latitude =App.POSITION_DEVICE.Latitude;
-            _longitude=App.POSITION_DEVICE.Longitude;
+            _latitude = Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Position").Latitude;
+            _longitude= Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Position").Longitude;
         }
 
         public override async Task OnResume()
         {
             await base.OnResume();
+            await LoadPictures();
             UpdateMap();
         }
 
@@ -136,13 +166,14 @@ namespace fourplaces.ViewModels
             }
         }
 
-        private async Task TryNewPicture()
+        public async Task TryLoadPicture()
         {
-            int? res = await App.SERVICE.UploadPicture();
-            if (res!=null)
+            int? res = await App.SERVICE.LoadPicture(true);
+            if (res != null)
             {
                 ImageId = res.ToString();
                 OnPropertyChanged("ImageId");
+                await LoadPictures();
             }
             else
             {
@@ -150,9 +181,37 @@ namespace fourplaces.ViewModels
             }
         }
 
+        public async Task TryTakePicture()
+        {
+            int? res = await App.SERVICE.LoadPicture(false);
+            if (res != null)
+            {
+                ImageId = res.ToString();
+                OnPropertyChanged("ImageId");
+                await LoadPictures();
+            }
+            else
+            {
+                Msg = "Echec, la photo n'a pas été enregistrée";
+            }
+        }
+
+        public async Task LoadPictures()
+        {
+            Images = new List<ImageItem2>();
+            int id = 1;
+            int idMax = await App.SERVICE.FindEndImage();
+            while (id != idMax + 1)
+            {
+                Images.Add(new ImageItem2(id, "https://td-api.julienmialon.com/images/" + id));
+                id++;
+            }
+            OnPropertyChanged("Images");
+        }
+
         private void UpdateMap()
         {
-            Position position_pin = new Position(Latitude, Longitude);
+            Xamarin.Forms.Maps.Position position_pin = new Xamarin.Forms.Maps.Position(Latitude, Longitude);
             Map.MoveToRegion(MapSpan.FromCenterAndRadius(position_pin, Distance.FromKilometers(150)));
             var pin = new Pin
             {

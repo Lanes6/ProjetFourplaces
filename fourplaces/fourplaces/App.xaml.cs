@@ -1,6 +1,7 @@
 ﻿using System;
 using fourplaces;
 using fourplaces.Models;
+using MonkeyCache.SQLite;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +11,6 @@ namespace fourplaces
 {
     public partial class App : Application
     {
-        public static Position POSITION_DEVICE { get; set; }
         public static string URI_BASE { get; set; }
         public static string URI_GET_PLACES { get; set; }
         public static string URI_GET_IMAGE { get; set; }
@@ -21,15 +21,11 @@ namespace fourplaces
         public static string URI_COMMENT { get; set; }
         public static string URI_PASS { get; set; }
         public static string URI_REFRESH { get; set; }
-
-        public static UserItem SESSION_PROFIL { get; set; }
-        public static LoginResult SESSION_LOGIN { get; set; }
         public static Service SERVICE { get; set; }
 
 
         public App()
         {
-            POSITION_DEVICE = new Position(0.0, 0.0);
             URI_BASE = "https://td-api.julienmialon.com";
             URI_GET_PLACES = "/places";
             URI_COMMENT = "/comments";
@@ -41,6 +37,11 @@ namespace fourplaces
             URI_PASS = "/password";
             URI_REFRESH = "/auth/refresh";
             SERVICE = new Service();
+
+
+            Barrel.ApplicationId = "fourPlace";
+            Barrel.Current.Add(key: "Position", data: new Position(0.0, 0.0), expireIn: TimeSpan.FromDays(1));
+
             InitializeComponent();
             MainPage = new NavigationPage(new LoginPage());
         }

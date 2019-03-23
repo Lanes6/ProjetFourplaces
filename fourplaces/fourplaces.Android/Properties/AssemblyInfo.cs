@@ -38,3 +38,5 @@ using Android.App;
 [assembly: UsesFeature("android.hardware.location", Required = true)]
 [assembly: UsesFeature("android.hardware.location.gps", Required = true)]
 [assembly: UsesFeature("android.hardware.location.network", Required = true)]
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]

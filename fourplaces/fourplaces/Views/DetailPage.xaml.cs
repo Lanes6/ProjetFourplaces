@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 
 namespace fourplaces
 {
-    public partial class DetailPage : BaseContentPage
+    public partial class DetailPage : TabbedPage
     {
         public DetailPage(Models.PlaceItemSummary lieu)
         {

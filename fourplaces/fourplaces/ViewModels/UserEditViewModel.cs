@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
+using MonkeyCache.SQLite;
 using Newtonsoft.Json;
 using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
@@ -16,11 +17,36 @@ namespace fourplaces.ViewModels
         private string _msg = "";
         private string _firstName;
         private string _lastName;
+        private List<ImageItem2> _images;
+        private ImageItem2 _selectedImage;
         private int? _imageId;
         private string _imageUrl;
         public ICommand EditCommand { protected set; get; }
-        public ICommand NewPictureCommand { protected set; get; }
+        public ICommand LoadPictureCommand { protected set; get; }
+        public ICommand TakePictureCommand { protected set; get; }
         public INavigation Navigation { get; set; }
+
+        public ImageItem2 SelectedImage
+        {
+            get
+            {
+                return _selectedImage;
+            }
+
+            set
+            {
+                _selectedImage = value;
+                OnPropertyChanged("SelectedImage");
+                ImageId = value.Id.ToString();
+                OnPropertyChanged("ImageId");
+            }
+        }
+
+        public List<ImageItem2> Images
+        {
+            get => _images;
+            set => SetProperty(ref _images, value);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -80,15 +106,23 @@ namespace fourplaces.ViewModels
         public UserEditViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            _firstName = App.SESSION_PROFIL.FirstName;
-            _lastName = App.SESSION_PROFIL.LastName;
-            _imageId = App.SESSION_PROFIL.ImageId;
-            _imageUrl = App.URI_BASE+App.URI_GET_IMAGE+App.SESSION_PROFIL.ImageId;
+            _firstName = Barrel.Current.Get<UserItem>(key: "Client").FirstName;
+            _lastName = Barrel.Current.Get<UserItem>(key: "Client").LastName;
+            _imageId = Barrel.Current.Get<UserItem>(key: "Client").ImageId;
+            _imageUrl = App.URI_BASE+App.URI_GET_IMAGE+ Barrel.Current.Get<UserItem>(key: "Client").ImageId;
+            _images = new List<ImageItem2>();
             EditCommand = new Command(async () => { await Edit(); });
-            NewPictureCommand = new Command(async () => { await TryNewPicture(); });
+            LoadPictureCommand = new Command(async () => { await TryLoadPicture(); });
+            TakePictureCommand = new Command(async () => { await TryTakePicture(); });
         }
 
-        public async Task Edit()
+    public override async Task OnResume()
+        {
+            await base.OnResume();
+            await LoadPictures();
+        }
+
+    public async Task Edit()
         {
             bool res = await App.SERVICE.EditUser(FirstName, LastName, int.Parse(ImageId));
             if (res)
@@ -101,18 +135,46 @@ namespace fourplaces.ViewModels
             }
         }
 
-        public async Task TryNewPicture()
+        public async Task TryLoadPicture()
         {
-            int? res = await App.SERVICE.UploadPicture();
+            int? res = await App.SERVICE.LoadPicture(true);
             if (res != null)
             {
                 ImageId = res.ToString();
                 OnPropertyChanged("ImageId");
+                await LoadPictures();
             }
             else
             {
                 Msg = "Echec, la photo n'a pas été enregistrée";
             }
+        }
+
+        public async Task TryTakePicture()
+        {
+            int? res = await App.SERVICE.LoadPicture(false);
+            if (res != null)
+            {
+                ImageId = res.ToString();
+                OnPropertyChanged("ImageId");
+                await LoadPictures();
+            }
+            else
+            {
+                Msg = "Echec, la photo n'a pas été enregistrée";
+            }
+        }
+
+        public async Task LoadPictures()
+        {
+            Images = new List<ImageItem2>();
+            int id = 1;
+            int idMax =await App.SERVICE.FindEndImage();
+            while (id!=idMax+1){
+                Images.Add(new ImageItem2(id, "https://td-api.julienmialon.com/images/" + id));
+                id++;
+            }
+            OnPropertyChanged("Images");
         }
 
         public virtual void OnPropertyChanged(string s)

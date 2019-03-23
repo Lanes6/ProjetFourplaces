@@ -1,4 +1,5 @@
 using System;
+using MonkeyCache.SQLite;
 using Newtonsoft.Json;
 using Plugin.Geolocator.Abstractions;
 
@@ -41,7 +42,7 @@ namespace fourplaces.Models
 
         public void calculPos()
         {
-            Distance = App.POSITION_DEVICE.CalculateDistance(new Position(Latitude, Longitude));
+            Distance = Barrel.Current.Get<Position>(key: "Localisation").CalculateDistance(new Position(Latitude, Longitude));
         }
 
         public int CompareTo(PlaceItemSummary other)

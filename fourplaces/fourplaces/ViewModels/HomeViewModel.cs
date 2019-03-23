@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
+using MonkeyCache.SQLite;
 using Newtonsoft.Json;
 using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
@@ -54,7 +55,7 @@ namespace fourplaces.ViewModels
                 Console.WriteLine(temp);
                 if (temp != null)
                 {
-                    App.POSITION_DEVICE = temp;
+                    Barrel.Current.Add(key: "Localisation", data: temp, expireIn: TimeSpan.FromDays(1));
                 }
                 else
                 {

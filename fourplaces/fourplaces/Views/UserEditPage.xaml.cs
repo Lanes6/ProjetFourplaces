@@ -20,5 +20,10 @@ namespace fourplaces
 			InitializeComponent ();
             BindingContext = new UserEditViewModel(Navigation);
         }
-	}
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+    }
 }

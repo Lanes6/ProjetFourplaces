@@ -112,6 +112,8 @@ class MonoPackageManager_Resources {
 		"MonkeyCache.dll",
 		"MonkeyCache.SQLite.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Connectivity.Abstractions.dll",
+		"Plugin.Connectivity.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Geolocator.dll",
 		"Plugin.Media.dll",

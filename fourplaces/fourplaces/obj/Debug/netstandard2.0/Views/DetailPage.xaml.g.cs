@@ -14,7 +14,7 @@ namespace fourplaces {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\DetailPage.xaml")]
-    public partial class DetailPage : global::Storm.Mvvm.Forms.BaseContentPage {
+    public partial class DetailPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView ListeComments;

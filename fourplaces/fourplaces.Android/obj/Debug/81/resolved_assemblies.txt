@@ -7,6 +7,8 @@ C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\D
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Mono.Android.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\mscorlib.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Newtonsoft.Json.dll
+C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Plugin.Connectivity.Abstractions.dll
+C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Plugin.Connectivity.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Plugin.CurrentActivity.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Plugin.Geolocator.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Plugin.Media.dll
@@ -63,14 +65,14 @@ C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\D
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.ServiceModel.Internals.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Web.Services.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Runtime.dll
+C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Threading.Tasks.dll
+C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Threading.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Collections.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Runtime.Extensions.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Linq.Expressions.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Reflection.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Diagnostics.Debug.dll
-C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Threading.Tasks.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Linq.dll
-C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Threading.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Reflection.Extensions.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\System.Globalization.dll
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Mono.Security.dll

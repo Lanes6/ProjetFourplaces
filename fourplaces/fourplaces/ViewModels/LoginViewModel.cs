@@ -13,8 +13,8 @@ namespace fourplaces.ViewModels
     public class LoginViewModel : ViewModelBase
     {
         private string _msg = "";
-        private string _mail;
-        private string _mdp;
+        private string _mail = "lanes";
+        private string _mdp = "lanes";
         public ICommand TryLoginCommand { protected set; get; }
         public ICommand TryRegisterCommand { protected set; get; }
         public INavigation Navigation { get; set; }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "1d1bb16c591d54a87db7e33e6497c99a142f24da"
+    "signature": "59cc87367599a27746698a6c5c9a69c85d177b8f"
   },
   "compilationOptions": {},
   "targets": {
@@ -13,6 +13,7 @@
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.1",
           "Storm.Mvvm.Forms": "2.1.0",
+          "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Forms": "3.4.0.1008975",
@@ -90,6 +91,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
+        }
+      },
+      "Xam.Plugin.Connectivity/4.0.0.190-beta": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Connectivity.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Connectivity.dll": {}
         }
       },
       "Xam.Plugin.Geolocator/4.5.0.6": {
@@ -203,6 +213,13 @@
       "sha512": "sha512-arwtqPq7+uvW4lCpA3zbWaviIBs/G/x/PsT1IVc6AlkMligUmrX9lxrDR504WVuZ1GXPxnuV7g55/qpGO85WzA==",
       "path": "storm.mvvm.forms/2.1.0",
       "hashPath": "storm.mvvm.forms.2.1.0.nupkg.sha512"
+    },
+    "Xam.Plugin.Connectivity/4.0.0.190-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p9PofTKArw6wHg45GpRRE+xDioJGOSAgA+X+E+vUf1CFZmTzeOO3YCmFdP7/W8x6f85Z50zugXGoszEGJx4QSg==",
+      "path": "xam.plugin.connectivity/4.0.0.190-beta",
+      "hashPath": "xam.plugin.connectivity.4.0.0.190-beta.nupkg.sha512"
     },
     "Xam.Plugin.Geolocator/4.5.0.6": {
       "type": "package",
