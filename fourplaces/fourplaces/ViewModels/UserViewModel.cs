@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
 using MonkeyCache.SQLite;
-using Newtonsoft.Json;
-using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 

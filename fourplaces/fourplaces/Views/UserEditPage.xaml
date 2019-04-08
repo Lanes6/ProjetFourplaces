@@ -41,10 +41,8 @@
                 Margin="10,0" WidthRequest="120" HeightRequest="120"/>
             </StackLayout>
 
-
-
             <RelativeLayout HeightRequest="120">
-            <ListView HasUnevenRows="True"
+                <ListView HasUnevenRows="True"
                 SeparatorVisibility="None"
                 Rotation="270"
                 RowHeight="120"
@@ -55,17 +53,17 @@
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=120}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:ImageItem2">
-                        <ViewCell>
-                            <ContentView Rotation="90">
-                                <Image Source="{Binding Url}" Margin="0,0,0,10" WidthRequest="120" HeightRequest="120" Aspect="AspectFit"/>
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </RelativeLayout>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ImageItem2">
+                            <ViewCell>
+                                <ContentView Rotation="90">
+                                    <Image Source="{Binding Url}" Margin="0,0,0,10" WidthRequest="120" HeightRequest="120" Aspect="AspectFit"/>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativeLayout>
 
 
             <StackLayout Orientation="Horizontal">
@@ -83,237 +81,4 @@
                 Margin="10,0"/>
         </StackLayout>
     </ScrollView>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    <!--
-    <syncfusion:SfListView Orientation="Horizontal" ItemsSource="{Binding Images}" VerticalOptions="CenterAndExpand" SelectionBackgroundColor="Blue" ItemSpacing="5" ItemSize="140" IsScrollBarVisible="true" HeightRequest="180">
-        <syncfusion:SfListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout VerticalOptions="FillAndExpand" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                        <Image Source="https://td-api.julienmialon.com/images/1" Aspect="Fill" HeightRequest="50"/>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </syncfusion:SfListView.ItemTemplate>
-    </syncfusion:SfListView>
--->
-
-
-
-
-
-
-
-
-    <!---
-
-    <AbsoluteLayout x:Name="MessagesLayoutFrame" Padding="0" HorizontalOptions="FillAndExpand">
-        <ContentView x:Name="MessagesLayoutFrameInner"  Padding="0"  HorizontalOptions="FillAndExpand">
-            <ListView x:Name="MessagesListView"
-              ItemsSource="{Binding Images}"
-              RowHeight="240"
-              VerticalOptions="Start"
-              HeightRequest="240"
-              WidthRequest="240"
-              SeparatorVisibility="None"
-              Rotation="270"
-              HorizontalOptions="Center">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ContentView Rotation="90" Padding="12">
-                                <Image Source="https://td-api.julienmialon.com/images/1" Aspect="AspectFill" />
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ContentView>
-    </AbsoluteLayout>
-
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-
-
-            <!---
-            <ListView ItemsSource="{Binding Images}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Image Source="https://td-api.julienmialon.com/images/1"/>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-
-            <ListView Rotation="270" ItemsSource="{Binding Images}" RowHeight="60" SeparatorVisibility="None"
-                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-30}"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=30}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=60}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ContentView Rotation="90" Padding="1" TranslationX="60">
-                                <Image Source="https://td-api.julienmialon.com/images/1" HeightRequest="58" WidthRequest="58" Aspect="AspectFill"/>
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
--->
-
-            <!---
-        
-                    <ListView ItemsSource="{Binding Images}" 
-        
-        
-        
-        
-                        <StackLayout Orientation="Horizontal" BindingContext="Images">
-                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                </StackLayout>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <StackLayout>
-
-            <ListView Rotation="270" ItemsSource="{Binding Images}" SeparatorVisibility="None"
-                              CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ContentView  Rotation="90" BackgroundColor="Transparent">
-                                <StackLayout>
-                                    <Image Source="https://td-api.julienmialon.com/images/1"/>
-                                </StackLayout>
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-        </StackLayout>
-
-
-           
-        
-        
-        
-        -->
-
-
-        <!---<Label Text="Id de votre image"
-                FontSize="20"
-                Margin="10,0"/>
-            <Entry Text="{Binding ImageId}"
-                Placeholder="1"
-                Margin="10,0"/>-->
-
-
-
-        <!--<ListView x:Name="MessagesListView"
-              ItemsSource="{Binding Images}"
-              RowHeight="240"
-              VerticalOptions="Start"
-              HeightRequest="500"
-              WidthRequest="500"
-              SeparatorVisibility="None"
-              Rotation="270"
-              HorizontalOptions="CenterAndExpand">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ContentView Rotation="90" Padding="12">
-                            <Image Source="https://td-api.julienmialon.com/images/1" Aspect="AspectFill" />
-                        </ContentView>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-
-
-
-
-
-        <!--<ListView x:Name="ImagesListView" Rotation="270" ItemsSource="{Binding Images}" RowHeight="100">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout>
-                                <Image Source="https://td-api.julienmialon.com/images/1"/>
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-
 </mvvm:BaseContentPage>

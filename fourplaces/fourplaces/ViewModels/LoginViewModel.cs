@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using fourplaces.Models;
-using Newtonsoft.Json;
-using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 
@@ -13,8 +8,8 @@ namespace fourplaces.ViewModels
     public class LoginViewModel : ViewModelBase
     {
         private string _msg = "";
-        private string _mail = "lanes";
-        private string _mdp = "lanes";
+        private string _mail = "";
+        private string _mdp = "";
         public ICommand TryLoginCommand { protected set; get; }
         public ICommand TryRegisterCommand { protected set; get; }
         public INavigation Navigation { get; set; }
@@ -55,6 +50,7 @@ namespace fourplaces.ViewModels
             {
                 Mdp = "";
                 Msg = "Erreur lors de la connection";
+                OnPropertyChanged("Msg");
             }
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,7 +13,6 @@ using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Xamarin.Forms;
 
 namespace fourplaces
 {
@@ -28,48 +26,12 @@ namespace fourplaces
             httpClient= new HttpClient();
         }
 
-        public async Task<int> FindEndImage()
-        {
-            int end = 50;
-
-            int borneSup=end;
-            int borneInf=1;
-            int mid;
-
-            while (end < end * 2 * 10)
-            {
-                while (borneInf != borneSup)
-                {
-                    mid = borneInf + (borneSup - borneInf) / 2;
-                    if (await TestImage(mid))
-                    {
-                        if (!await TestImage(mid + 1))
-                        {
-                            return mid;
-                        }
-                        else
-                        {
-                            borneInf = mid;
-                        }
-                    }
-                    else
-                    {
-                        borneSup = mid;
-                    }
-                }
-                end = end * 2;
-            }
-            return 1;
-
-        }
-
-
         public async Task<bool> TestImage(int id)
         {
             try
             {
-                HttpClient oHttpClient = new HttpClient();
-                var response = await oHttpClient.GetAsync("https://td-api.julienmialon.com/images/" + id);
+                httpClient = new HttpClient();
+                var response = await httpClient.GetAsync("https://td-api.julienmialon.com/images/" + id);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
@@ -458,9 +420,11 @@ namespace fourplaces
                     return file;
                 }
             }
-            catch (Exception z) { Console.WriteLine("====================================" + z); }
+            catch (Exception e) {
+                return null;
+            }
             return null;
-    }
+        }
 
         public async Task<int?> LoadPicture(bool temp)
         {

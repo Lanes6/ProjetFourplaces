@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
@@ -131,6 +129,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Erreur lors du chargement des détails du lieu";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -146,11 +145,13 @@ namespace fourplaces.ViewModels
                 else
                 {
                     Msg = "Erreur lors de l'envoi du commentaire";
+                    OnPropertyChanged("Msg");
                 }
             }
             else
             {
                 Msg="Commentaire vide";
+                OnPropertyChanged("Msg");
             }
         }
     }

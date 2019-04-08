@@ -1,6 +1,4 @@
 ﻿using System;
-using fourplaces;
-using fourplaces.Models;
 using MonkeyCache.SQLite;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;
@@ -37,7 +35,6 @@ namespace fourplaces
             URI_PASS = "/password";
             URI_REFRESH = "/auth/refresh";
             SERVICE = new Service();
-
 
             Barrel.ApplicationId = "fourPlace";
             Barrel.Current.Add(key: "Position", data: new Position(0.0, 0.0), expireIn: TimeSpan.FromDays(1));

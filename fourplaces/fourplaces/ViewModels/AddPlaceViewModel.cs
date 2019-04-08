@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
 using MonkeyCache.SQLite;
-using Newtonsoft.Json;
-using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -42,9 +39,12 @@ namespace fourplaces.ViewModels
             set
             {
                 _selectedImage = value;
-                OnPropertyChanged("SelectedImage");
-                ImageId = value.Id.ToString();
-                OnPropertyChanged("ImageId");
+                if (value.Id != 0)
+                {
+                    OnPropertyChanged("SelectedImage");
+                    ImageId = value.Id.ToString();
+                    OnPropertyChanged("ImageId");
+                }
             }
         }
 
@@ -139,10 +139,13 @@ namespace fourplaces.ViewModels
             AddPlaceCommand = new Command(async () => { await TryAddPlace(); });
             _map = new Map();
             _images = new List<ImageItem2>();
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
             _imageId = 1;
             _imageUrl = App.URI_BASE + App.URI_GET_IMAGE +1;
-            _latitude = Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Position").Latitude;
-            _longitude= Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Position").Longitude;
+            _latitude = Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Localisation").Latitude;
+            _longitude = Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Localisation").Longitude;
         }
 
         public override async Task OnResume()
@@ -163,6 +166,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec de la création";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -178,6 +182,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec, la photo n'a pas été enregistrée";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -193,6 +198,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec, la photo n'a pas été enregistrée";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -200,8 +206,7 @@ namespace fourplaces.ViewModels
         {
             Images = new List<ImageItem2>();
             int id = 1;
-            int idMax = await App.SERVICE.FindEndImage();
-            while (id != idMax + 1)
+            while (await App.SERVICE.TestImage(id))
             {
                 Images.Add(new ImageItem2(id, "https://td-api.julienmialon.com/images/" + id));
                 id++;

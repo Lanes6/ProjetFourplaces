@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
 using MonkeyCache.SQLite;
-using Newtonsoft.Json;
-using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 
@@ -36,9 +33,12 @@ namespace fourplaces.ViewModels
             set
             {
                 _selectedImage = value;
-                OnPropertyChanged("SelectedImage");
-                ImageId = value.Id.ToString();
-                OnPropertyChanged("ImageId");
+                if (value.Id != 0)
+                {
+                    OnPropertyChanged("SelectedImage");
+                    ImageId = value.Id.ToString();
+                    OnPropertyChanged("ImageId");
+                }
             }
         }
 
@@ -111,6 +111,9 @@ namespace fourplaces.ViewModels
             _imageId = Barrel.Current.Get<UserItem>(key: "Client").ImageId;
             _imageUrl = App.URI_BASE+App.URI_GET_IMAGE+ Barrel.Current.Get<UserItem>(key: "Client").ImageId;
             _images = new List<ImageItem2>();
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
             EditCommand = new Command(async () => { await Edit(); });
             LoadPictureCommand = new Command(async () => { await TryLoadPicture(); });
             TakePictureCommand = new Command(async () => { await TryTakePicture(); });
@@ -132,6 +135,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec de la mise à jour du profil";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -147,6 +151,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec, la photo n'a pas été enregistrée";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -162,6 +167,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Echec, la photo n'a pas été enregistrée";
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -169,8 +175,8 @@ namespace fourplaces.ViewModels
         {
             Images = new List<ImageItem2>();
             int id = 1;
-            int idMax =await App.SERVICE.FindEndImage();
-            while (id!=idMax+1){
+            while (await App.SERVICE.TestImage(id))
+            {
                 Images.Add(new ImageItem2(id, "https://td-api.julienmialon.com/images/" + id));
                 id++;
             }

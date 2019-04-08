@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using fourplaces.Models;
-using Newtonsoft.Json;
-using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
 
@@ -75,11 +70,13 @@ namespace fourplaces.ViewModels
                 else
                 {
                     Msg = "Erreur lors de l'enregistrement";
+                    OnPropertyChanged("Msg");
                 }
             }
             else
             {
                 Msg = "Un des champs est incorrect";
+                OnPropertyChanged("Msg");
             }
         }
     }

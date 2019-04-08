@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using fourplaces.Models;
 using MonkeyCache.SQLite;
-using Newtonsoft.Json;
 using Plugin.Geolocator.Abstractions;
 using Storm.Mvvm;
 using Xamarin.Forms;
@@ -52,7 +51,6 @@ namespace fourplaces.ViewModels
                     element.ImageUrl = App.URI_BASE + App.URI_GET_IMAGE + element.ImageId;
                 }
                 Position temp = await App.SERVICE.Localisation();
-                Console.WriteLine(temp);
                 if (temp != null)
                 {
                     Barrel.Current.Add(key: "Localisation", data: temp, expireIn: TimeSpan.FromDays(1));
@@ -60,6 +58,7 @@ namespace fourplaces.ViewModels
                 else
                 {
                     Msg = "Activer votre localisation!";
+                    OnPropertyChanged("Msg");
                 }
                 lieux.SortDistance();
                 Lieux = lieux.Lieux;
@@ -67,6 +66,7 @@ namespace fourplaces.ViewModels
             else
             {
                 Msg = "Erreur lors de la récupération des lieux";
+                OnPropertyChanged("Msg");
             }
         }
     }
