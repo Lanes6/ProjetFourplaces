@@ -111,9 +111,9 @@ namespace fourplaces.ViewModels
             _imageId = Barrel.Current.Get<UserItem>(key: "Client").ImageId;
             _imageUrl = App.URI_BASE+App.URI_GET_IMAGE+ Barrel.Current.Get<UserItem>(key: "Client").ImageId;
             _images = new List<ImageItem2>();
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
             EditCommand = new Command(async () => { await Edit(); });
             LoadPictureCommand = new Command(async () => { await TryLoadPicture(); });
             TakePictureCommand = new Command(async () => { await TryTakePicture(); });

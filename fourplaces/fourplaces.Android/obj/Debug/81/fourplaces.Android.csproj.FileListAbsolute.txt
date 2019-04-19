@@ -230,5 +230,6 @@ C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\D
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\res\drawable\loading.jpg
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\linksrc\fourplaces.dll.mdb
 C:\Users\Lanes\source\repos\ProjetFourplaces\fourplaces\fourplaces.Android\obj\Debug\81\linksrc\Plugin.Connectivity.dll.mdb

@@ -193,4 +193,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loading.jpg" />
+  </ItemGroup>
 </Project>

@@ -139,9 +139,9 @@ namespace fourplaces.ViewModels
             AddPlaceCommand = new Command(async () => { await TryAddPlace(); });
             _map = new Map();
             _images = new List<ImageItem2>();
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
-            _images.Add(new ImageItem2(0, "http://www.webdesign-hints.com/wp-content/uploads/2017/06/loadingeffect2.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
+            _images.Add(new ImageItem2(0, "loading.png"));
             _imageId = 1;
             _imageUrl = App.URI_BASE + App.URI_GET_IMAGE +1;
             _latitude = Barrel.Current.Get<Plugin.Geolocator.Abstractions.Position>(key: "Localisation").Latitude;
